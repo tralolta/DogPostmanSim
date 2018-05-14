@@ -36,9 +36,9 @@ void Dog::tick(qreal x_position_postman, qreal y_position_postman)
 {
     qreal delta_x = qFabs(x_position_postman - this->x_position);
     qreal delta_y = qFabs(this->y_position - y_position_postman);
-    qreal theta = qAtan(delta_x / delta_y);
-    this->x_position += (qreal)this->current_speed * qSin(theta);
-    this->y_position -= (qreal)this->current_speed * qCos(theta);
+    qreal theta = qAtan(delta_y / delta_x);
+    this->x_position += (qreal)this->current_speed * qCos(theta);
+    this->y_position -= (qreal)this->current_speed * qSin(theta);
     this->x_position = (this->x_position < x_position_postman)?this->x_position:x_position_postman;
     this->y_position = (this->y_position > y_position_postman)?this->y_position:y_position_postman;
     if(this->ticks < this->acceleration_time_end)
